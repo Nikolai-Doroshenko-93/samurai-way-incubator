@@ -1,0 +1,17 @@
+.nav__container { 
+  grid-area: n; 
+  background-color: black;
+}
+
+.nav__item {
+  list-style: none;
+}
+
+.nav__ul__item__link{
+  color:white;
+  text-decoration: none;
+}
+
+.nav__ul__item__link_active {
+  color:gold
+}

@@ -1,0 +1,21 @@
+.dialogs__container {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.dialogs__userUl {
+    list-style: none;
+}
+.dialogs__userUl__li {
+    color: white;
+}
+
+
+
+.dialogs__messagesUl {  
+    list-style: none;
+}
+.dialogs__messagesUl__li {
+    color: aqua
+}
