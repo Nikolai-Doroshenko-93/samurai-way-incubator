@@ -1,0 +1,7 @@
+.dialogs__messagesUl {  
+    list-style: none;
+}
+
+.dialogs__messagesUl__li {
+    color: aqua
+}

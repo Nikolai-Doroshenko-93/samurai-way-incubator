@@ -16,11 +16,11 @@ function App() {
         <Header/>
         <Navbar/>
         <div className='work-wrapper'>
-          <Route path='/profile' component={Profile}/>
-          <Route path='/dialogs' component={Dialogs}/>
-          <Route path='/musik' component={Musik}/>
-          <Route path='/news' component={News}/>
-          <Route path='/settings' component={Settings}/>
+          <Route path='/profile' render={() => <Profile/>}/>
+          <Route path='/dialogs' render={() => <Dialogs/>}/>
+          <Route path='/musik' render={() => <Musik/>}/>
+          <Route path='/news' render={() => <News/>}/>
+          <Route path='/settings' render={() => <Settings/>}/>
         </div>  
       </div>
     </BrowserRouter>
