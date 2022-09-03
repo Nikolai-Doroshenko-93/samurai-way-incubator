@@ -8,7 +8,9 @@ type PostPropsType = {
   likes: number
 }
 
-type MyPostsPropsType = Array<PostPropsType>
+type MyPostsPropsType = {
+  postsData: Array<PostPropsType>
+}
 
 // let postsData = [
 //   {id: 1, post: "post 1", likes: 11},
@@ -16,7 +18,7 @@ type MyPostsPropsType = Array<PostPropsType>
 //   {id: 3, post: "post 3", likes: 11},
 //   {id: 4, post: "post 4", likes: 11}
 // ]
-const MyPosts = (props) => {
+const MyPosts = (props: MyPostsPropsType) => {
     return (<div className={s.my_posts}>
         <div>
           <textarea className={s.textarea}></textarea>
