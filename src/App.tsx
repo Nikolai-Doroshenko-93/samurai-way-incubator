@@ -9,15 +9,39 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import {BrowserRouter,Route} from 'react-router-dom'
 
-function App() {
+type PostPropsType = {
+  id: number,
+  post: string,
+  likes: number
+}
+
+
+type DialogItemDataPropsType = {
+  name: string,
+  id: number
+}
+type MessageItemData = {
+  id: number,
+  message: string
+}
+
+
+type  AppPropsType = {
+  postsData: Array<PostPropsType>
+  dialogItemData: Array<DialogItemDataPropsType>,
+  messageItemData: Array<MessageItemData>
+}
+
+function App(props: AppPropsType) {
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
         <Navbar/>
         <div className='work-wrapper'>
-          <Route path='/profile' render={() => <Profile/>}/>
-          <Route path='/dialogs' render={() => <Dialogs/>}/>
+          <Route path='/profile' render={() => <Profile postsData={props.postsData}/>}/>
+          <Route path='/dialogs' render={() => <Dialogs dialogItemData={props.dialogItemData} messageItemData={props.messageItemData}/>}/>
           <Route path='/musik' render={() => <Musik/>}/>
           <Route path='/news' render={() => <News/>}/>
           <Route path='/settings' render={() => <Settings/>}/>

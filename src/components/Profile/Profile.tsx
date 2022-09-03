@@ -3,21 +3,24 @@ import s from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
+type PostPropsType = {
+  id: number,
+  post: string,
+  likes: number
+}
 
-let postsData = [
-  {id: 1, post: "post 1", likes: 11},
-  {id: 2, post: "post 2", likes: 11},
-  {id: 3, post: "post 3", likes: 11},
-  {id: 4, post: "post 4", likes: 11}
-]
+type MyPostsPropsType = {
+  postsData: Array<PostPropsType>
+}
 
-const Profile = () => {
 
- 
+
+const Profile = (props: MyPostsPropsType) => {
+
     return (<div className= {s.profile__container}>     
       <main >
         <ProfileInfo/>
-        <MyPosts postsData={postsData}/>
+        <MyPosts postsData={props.postsData}/>
       </main>
     </div>)
 }
