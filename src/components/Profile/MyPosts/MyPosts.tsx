@@ -3,21 +3,39 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
 type PostPropsType = {
-  id: number,
-  post: string,
-  likes: number
+      id: number,
+      post: string,
+      likes: number
 }
 
 type MyPostsPropsType = {
-  postsData: Array<PostPropsType>
+    postsData: Array<PostPropsType>
+    addPost: (postText: string) => void;
 }
 
 
 const MyPosts = (props: MyPostsPropsType) => {
+
+    let newPostElement:React.RefObject<any> = React.createRef()
+
+    let addPost = () => {
+        let text = newPostElement.current.value
+        props.addPost(text)
+    }
+
     return (<div className={s.my_posts}>
         <div>
-          <textarea className={s.textarea}></textarea>
-          <button type='button'>Add new post</button>
+          <textarea
+              className={s.textarea}
+              ref={newPostElement}>
+          </textarea>
+        </div>
+        <div>
+          <button
+              type='button'
+              onClick={addPost}>
+              Add new post
+          </button>
         </div>
         <div className={s.posts_block}>
         

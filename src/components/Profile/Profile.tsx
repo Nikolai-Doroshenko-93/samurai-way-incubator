@@ -10,17 +10,23 @@ type PostPropsType = {
 }
 
 type MyPostsPropsType = {
-  postsData: Array<PostPropsType>
+  posts: Array<PostPropsType>
+}
+type StatePropsType = {
+    state: MyPostsPropsType,
+    addPost: (postText: string) => void;
 }
 
 
-
-const Profile = (props: MyPostsPropsType) => {
+const Profile = (props: StatePropsType) => {
 
     return (<div className= {s.profile__container}>     
       <main >
         <ProfileInfo/>
-        <MyPosts postsData={props.postsData}/>
+        <MyPosts
+            postsData={props.state.posts}
+            addPost={props.addPost}
+        />
       </main>
     </div>)
 }

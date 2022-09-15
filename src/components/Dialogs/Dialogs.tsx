@@ -14,19 +14,30 @@ type MessageItemData = {
 }
 
 type DialogsPropsType = {
-    dialogItemData: Array<DialogItemDataPropsType>,
-    messageItemData: Array<MessageItemData>
+    dialogs: Array<DialogItemDataPropsType>,
+    messages: Array<MessageItemData>
 }
-const Dialogs = (props: DialogsPropsType) => {
+type StatePropsType = {
+    state: DialogsPropsType
+}
+const Dialogs = (props: StatePropsType) => {
 
 
     return (
         <div className={s.dialogs__container}>
             <ul className={s.dialogs__userUl}>
-                {props.dialogItemData.map((d) => <DialogItem name={d.name} id={d.id}/>)}
+                {props.state.dialogs.map((d,index) =>
+                    <DialogItem name={d.name}
+                                id={d.id}
+                                key={index}
+                    />)}
             </ul>
             <ul className={s.dialogs__messagesUl}>
-                {props.messageItemData.map((m) => <MessageItem message={m.message} id={m.id}/>)}                                          
+                {props.state.messages.map((m, index) =>
+                    <MessageItem message={m.message}
+                                 id={m.id}
+                                 key={index}
+                    />)}
             </ul>
         </div>
     )
