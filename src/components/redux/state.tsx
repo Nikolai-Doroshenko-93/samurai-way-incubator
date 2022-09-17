@@ -1,5 +1,5 @@
 import React from "react";
-
+import {rerenderEntireTree} from "../../render";
 
 
 let state= {
@@ -33,10 +33,11 @@ let state= {
 export let addPost = (postText: string) => {
         let newPost = {
             id: 5,
-            message: postMessage,
+            post: postText,
             likesCount: 0
         }
       // @ts-ignore
     state.profilePage.posts.push(newPost);
+        rerenderEntireTree();
     }
 export default state

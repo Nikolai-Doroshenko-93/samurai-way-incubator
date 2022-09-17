@@ -19,8 +19,9 @@ const MyPosts = (props: MyPostsPropsType) => {
     let newPostElement:React.RefObject<any> = React.createRef()
 
     let addPost = () => {
-        let text = newPostElement.current.value
-        props.addPost(text)
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = '';
     }
 
     return (<div className={s.my_posts}>
