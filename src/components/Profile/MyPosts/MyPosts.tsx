@@ -9,8 +9,10 @@ type PostPropsType = {
 }
 
 type MyPostsPropsType = {
-    postsData: Array<PostPropsType>
-    addPost: (postText: string) => void;
+    postsData: Array<PostPropsType>,
+    newPostText: string,
+    addPost: () => void;
+    updateNewPostText: (newText: string) => void
 }
 
 
@@ -19,17 +21,20 @@ const MyPosts = (props: MyPostsPropsType) => {
     let newPostElement:React.RefObject<any> = React.createRef()
 
     let addPost = () => {
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = '';
+        props.addPost();
+        props.updateNewPostText('') //????????? не работает
     }
-
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
+    }
     return (<div className={s.my_posts}>
         <div>
           <textarea
               className={s.textarea}
-              ref={newPostElement}>
-          </textarea>
+              ref={newPostElement}
+              onChange={onPostChange}
+          />
         </div>
         <div>
           <button

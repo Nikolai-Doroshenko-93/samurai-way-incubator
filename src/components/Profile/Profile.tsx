@@ -10,11 +10,13 @@ type PostPropsType = {
 }
 
 type MyPostsPropsType = {
-  posts: Array<PostPropsType>
+  posts: Array<PostPropsType>,
+    newPostText: string
 }
 type StatePropsType = {
     state: MyPostsPropsType,
-    addPost: (postText: string) => void;
+    addPost: () => void;
+    updateNewPostText: (newText: string) => void
 }
 
 
@@ -25,7 +27,9 @@ const Profile = (props: StatePropsType) => {
         <ProfileInfo/>
         <MyPosts
             postsData={props.state.posts}
+            newPostText={props.state.newPostText}
             addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText}
         />
       </main>
     </div>)

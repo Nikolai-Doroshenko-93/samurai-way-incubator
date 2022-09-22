@@ -1,6 +1,8 @@
 import React from "react";
-import {rerenderEntireTree} from "../../render";
 
+let rerenderEntireTree = () => {
+    console.log('state was changed')
+}
 
 let state= {
     profilePage: {
@@ -9,7 +11,8 @@ let state= {
             {id: 2, post: "post 2", likes: 11},
             {id: 3, post: "post 3", likes: 11},
             {id: 4, post: "post 4", likes: 11}
-        ]
+        ],
+        newPostText: 'it-kam'
     },
     messagesPage: {
         messages: [
@@ -29,15 +32,27 @@ let state= {
         ],
     }
 }
+// @ts-ignore
+window.state = state;
 
-export let addPost = (postText: string) => {
+export const addPost = () => {
         let newPost = {
             id: 5,
-            post: postText,
+            post: state.profilePage.newPostText,
             likesCount: 0
         }
       // @ts-ignore
     state.profilePage.posts.push(newPost);
+
         rerenderEntireTree();
     }
+export const updateNewPostText = (newText: string) => {
+    // @ts-ignore
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree();
+}
+// @ts-ignore
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
 export default state

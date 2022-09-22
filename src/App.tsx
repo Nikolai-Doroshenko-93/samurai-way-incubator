@@ -25,7 +25,8 @@ type MessageItemPropsType = {
 }
 
 type ProfilePageType = {
-  posts: Array<PostsItemPropsType>
+  posts: Array<PostsItemPropsType>,
+  newPostText: string
 }
 type MessagesPropsType = {
   messages: Array<MessageItemPropsType>,
@@ -38,10 +39,11 @@ type RootStatePropsType = {
 }
 type StatePropsType = {
   state: RootStatePropsType
-  addPost: (postText: string) => void;
+  addPost: () => void;
+  updateNewPostText: (newText: string) => void
 }
 function App(props: StatePropsType) {
-  {console.log(state)}
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -53,6 +55,7 @@ function App(props: StatePropsType) {
                      <Profile
                          state={props.state.profilePage}
                          addPost={props.addPost}
+                         updateNewPostText={props.updateNewPostText}
                      />}
           />
           <Route path='/dialogs'
