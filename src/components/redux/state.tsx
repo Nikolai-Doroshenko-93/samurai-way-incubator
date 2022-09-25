@@ -4,7 +4,7 @@ let rerenderEntireTree = () => {
     console.log('state was changed')
 }
 
-let state= {
+export let state = {
     profilePage: {
         posts: [
             {id: 1, post: "post 1", likes: 11},
@@ -36,16 +36,16 @@ let state= {
 window.state = state;
 
 export const addPost = () => {
-        let newPost = {
-            id: 5,
-            post: state.profilePage.newPostText,
-            likesCount: 0
-        }
-      // @ts-ignore
+    let newPost = {
+        id: 5,
+        post: state.profilePage.newPostText,
+        likesCount: 0
+    }
+    // @ts-ignore
     state.profilePage.posts.push(newPost);
 
-        rerenderEntireTree();
-    }
+    rerenderEntireTree();
+}
 export const updateNewPostText = (newText: string) => {
     // @ts-ignore
     state.profilePage.newPostText = newText;
@@ -55,4 +55,3 @@ export const updateNewPostText = (newText: string) => {
 export const subscribe = (observer) => {
     rerenderEntireTree = observer
 }
-export default state

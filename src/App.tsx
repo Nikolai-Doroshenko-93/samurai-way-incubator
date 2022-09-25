@@ -8,7 +8,6 @@ import Settings from './components/Settings/Settings';
 import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import {BrowserRouter,Route} from 'react-router-dom'
-import state from "./components/redux/state";
 
 type PostsItemPropsType = {
   id: number,
