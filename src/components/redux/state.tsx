@@ -1,57 +1,83 @@
 import React from "react";
 
-let rerenderEntireTree = () => {
-    console.log('state was changed')
-}
+type dispatchType = any
 
-export let state = {
-    profilePage: {
-        posts: [
-            {id: 1, post: "post 1", likes: 11},
-            {id: 2, post: "post 2", likes: 11},
-            {id: 3, post: "post 3", likes: 11},
-            {id: 4, post: "post 4", likes: 11}
-        ],
-        newPostText: 'it-kam'
+export let store = {
+    _state: {
+        profilePage: {
+            posts: [
+                {id: 1, post: "post 1", likes: 11},
+                {id: 2, post: "post 2", likes: 11},
+                {id: 3, post: "post 3", likes: 11},
+                {id: 4, post: "post 4", likes: 11}
+            ],
+            newPostText: 'it-kam'
+        },
+        messagesPage: {
+            messages: [
+                {id: 1, message: "Hi"},
+                {id: 2, message: "How are you"},
+                {id: 3, message: "Good"},
+                {id: 4, message: "And you?"},
+                {id: 5, message: "Bad"}
+            ],
+            dialogs: [
+                {id: 1, name: "Sveta"},
+                {id: 2, name: "Dima"},
+                {id: 3, name: "Victor"},
+                {id: 4, name: "Katya"},
+                {id: 5, name: "Lera"},
+                {id: 6, name: "Sasha"}
+            ],
+        }
     },
-    messagesPage: {
-        messages: [
-            {id: 1, message: "Hi"},
-            {id: 2, message: "How are you"},
-            {id: 3, message: "Good"},
-            {id: 4, message: "And you?"},
-            {id: 5, message: "Bad"}
-        ],
-        dialogs: [
-            {id: 1, name: "Sveta"},
-            {id: 2, name: "Dima"},
-            {id: 3, name: "Victor"},
-            {id: 4, name: "Katya"},
-            {id: 5, name: "Lera"},
-            {id: 6, name: "Sasha"}
-        ],
+    //@ts-ignore
+    _callSubscriber(_state)  {
+        console.log('state was changed')
+    },
+    getState() {
+        return this._state;
+    },
+    //@ts-ignore
+    subscribe(observer) {
+        this._callSubscriber = observer
+    },
+
+    addPost()  {
+        let newPost = {
+            id: 5,
+            post: this._state.profilePage.newPostText,
+            likesCount: 0
+        }
+        // @ts-ignore
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
+    },
+    updateNewPostText(newText: any) {
+        // @ts-ignore
+        this._state.profilePage.newPostText = action.newText;
+        this._callSubscriber(this._state);
+    },
+    dispatch(action: dispatchType) {
+        if (action.type === "ADD_POST") {
+            let newPost = {
+                id: 5,
+                post: this._state.profilePage.newPostText,
+                likesCount: 0
+            }
+            // @ts-ignore
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === "UPDATE-NEW-POST-TEXT"){
+            // @ts-ignore
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
     }
 }
-// @ts-ignore
-window.state = state;
+//@ts-ignore
+window.store = store;
 
-export const addPost = () => {
-    let newPost = {
-        id: 5,
-        post: state.profilePage.newPostText,
-        likesCount: 0
-    }
-    // @ts-ignore
-    state.profilePage.posts.push(newPost);
 
-    rerenderEntireTree();
-}
-export const updateNewPostText = (newText: string) => {
-    // @ts-ignore
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree();
-}
-// @ts-ignore
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer
-}

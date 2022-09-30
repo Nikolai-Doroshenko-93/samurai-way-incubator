@@ -53,8 +53,8 @@ function App(props: StatePropsType) {
                  render={() =>
                      <Profile
                          state={props.state.profilePage}
-                         addPost={props.addPost}
-                         updateNewPostText={props.updateNewPostText}
+                         // @ts-ignore
+                         dispatch={props.dispatch}
                      />}
           />
           <Route path='/dialogs'
