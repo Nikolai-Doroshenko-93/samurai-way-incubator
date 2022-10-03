@@ -60,7 +60,7 @@ export let store = {
         this._callSubscriber(this._state);
     },
     dispatch(action: dispatchType) {
-        if (action.type === "ADD_POST") {
+        if (action.type === "ADD-POST") {
             let newPost = {
                 id: 5,
                 post: this._state.profilePage.newPostText,
@@ -71,7 +71,7 @@ export let store = {
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
         } else if (action.type === "UPDATE-NEW-POST-TEXT"){
-            // @ts-ignore
+
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
