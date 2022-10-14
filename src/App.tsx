@@ -30,6 +30,7 @@ type ProfilePageType = {
 type MessagesPropsType = {
   messages: Array<MessageItemPropsType>,
   dialogs: Array<DialogsItemPropsType>
+  newMessageBody: string
 }
 
 type RootStatePropsType = {
@@ -61,6 +62,9 @@ function App(props: StatePropsType) {
                  render={() =>
                      <Dialogs
                          state = {props.state.messagesPage}
+                         // @ts-ignore
+
+                         dispatch={props.dispatch}
                      />}
           />
           <Route path='/musik' render={() => <Music/>}/>

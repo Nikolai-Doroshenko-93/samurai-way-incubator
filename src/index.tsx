@@ -12,6 +12,7 @@ export let rerenderEntireTree = () => {
                 state={store.getState()}
                 // @ts-ignore
                 dispatch={store.dispatch.bind(store)}
+                store={store}
             />
         </BrowserRouter>,document.getElementById('root')
     );
