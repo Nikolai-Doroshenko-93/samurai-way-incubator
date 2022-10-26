@@ -2,7 +2,7 @@ import React, {TextareaHTMLAttributes} from "react";
 import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from "./MessageItem/MessageItem";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../redux/state";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../redux/dialogsReducer";
 
 
 type DialogItemDataPropsType = {
