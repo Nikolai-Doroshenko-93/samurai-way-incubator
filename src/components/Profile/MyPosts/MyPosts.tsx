@@ -18,17 +18,19 @@ type MyPostsPropsType = {
 
 
 const MyPosts = (props: MyPostsPropsType) => {
+    let postsElement =
+        props.postsData.map(p => <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)
 
-    let newPostElement:React.RefObject<any> = React.createRef()
+    let newPostElement:React.RefObject<HTMLTextAreaElement> = React.createRef()
 
-    let addPost = () => {
+    let onAddPost = () => {
         // @ts-ignore
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     }
     let onPostChange = () => {
-        let text = newPostElement.current.value;
+        let text = newPostElement.current?.value;
         // @ts-ignore
-        props.dispatch(updateNewPostTextActionCreator(text))
+        props.updateNewPostText(text)
     }
     return (<div className={s.my_posts}>
         <div>
@@ -41,13 +43,13 @@ const MyPosts = (props: MyPostsPropsType) => {
         <div>
           <button
               type='button'
-              onClick={addPost}>
+              onClick={onAddPost}>
               Add new post
           </button>
         </div>
         <div className={s.posts_block}>
         
-          {props.postsData.map(p => <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)}
+          {postsElement}
         </div>
     </div>)
 }

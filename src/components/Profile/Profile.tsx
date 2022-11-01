@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 type PostPropsType = {
   id: number,
@@ -22,13 +23,13 @@ type StatePropsType = {
 
 const Profile = (props: StatePropsType) => {
 
-    return (<div className= {s.profile__container}>     
+
+    return (<div className= {s.profile__container}>
       <main >
         <ProfileInfo/>
-        <MyPosts
-            postsData={props.state.posts}
+        <MyPostsContainer
             // @ts-ignore
-            dispatch={props.dispatch}
+            store={props.store}
         />
       </main>
     </div>)

@@ -53,9 +53,8 @@ function App(props: StatePropsType) {
           <Route path='/profile'
                  render={() =>
                      <Profile
-                         state={props.state.profilePage}
-                         // @ts-ignore
-                         dispatch={props.dispatch}
+                         //@ts-ignore
+                         store={props.store}
                      />}
           />
           <Route path='/dialogs'
@@ -63,7 +62,6 @@ function App(props: StatePropsType) {
                      <Dialogs
                          state = {props.state.messagesPage}
                          // @ts-ignore
-
                          dispatch={props.dispatch}
                      />}
           />
