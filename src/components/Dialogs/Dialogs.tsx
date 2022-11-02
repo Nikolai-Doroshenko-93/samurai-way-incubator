@@ -5,44 +5,45 @@ import MessageItem from "./MessageItem/MessageItem";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../redux/dialogsReducer";
 
 
-type DialogItemDataPropsType = {
-    name: string,
-    id: number
-}
-type MessageItemData = {
-    id: number,
-    message: string
-}
+// type DialogItemDataPropsType = {
+//     name: string,
+//     id: number
+// }
+// type MessageItemData = {
+//     id: number,
+//     message: string
+// }
+//
+// type DialogsPropsType = {
+//     dialogs: Array<DialogItemDataPropsType>,
+//     messages: Array<MessageItemData>
+//     newMessageBody: string
+// }
+// type StatePropsType = {
+//     state: DialogsPropsType
+// }
+const Dialogs = (props: any) => {
+    let state = props.messagesPage
 
-type DialogsPropsType = {
-    dialogs: Array<DialogItemDataPropsType>,
-    messages: Array<MessageItemData>
-    newMessageBody: string
-}
-type StatePropsType = {
-    state: DialogsPropsType
-}
-const Dialogs = (props: StatePropsType) => {
-
-    let dialogsElement = props.state.dialogs.map((d,index) =>
+    let dialogsElement = state.dialogs.map((d: any,index: any) =>
         <DialogItem name={d.name}
                     id={d.id}
                     key={index}
         />)
-    let messageElement = props.state.messages.map((m, index) =>
+    let messageElement = state.messages.map((m: any, index: any) =>
         <MessageItem message={m.message}
                      id={m.id}
                      key={index}
         />)
-    let newMessageBody = props.state.newMessageBody;
+    let newMessageBody = state.newMessageBody;
     let onNewMessageChange = (e: any) => {
         let body = e.target.value;
         //@ts-ignore
-        props.dispatch(updateNewMessageBodyCreator(body))
+        props.updateNewMessageBody(body)
     }
     let onSendMessageClick = () => {
         //@ts-ignore
-        props.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
     return (
         <div className={s.dialogs__container}>

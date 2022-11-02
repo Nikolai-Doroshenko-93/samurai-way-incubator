@@ -3,33 +3,32 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post'
 import {addPostActionCreator, updateNewPostTextActionCreator} from '../../redux/profileReducer'
 
-type PostPropsType = {
-      id: number,
-      post: string,
-      likes: number
-}
+// type PostPropsType = {
+//       id: number,
+//       post: string,
+//       likes: number
+// }
+//
+// type MyPostsPropsType = {
+//     postsData: Array<PostPropsType>,
+//     newPostText: string,
+//     addPost: () => void;
+//     updateNewPostText: (newText: string) => void
+// }
 
-type MyPostsPropsType = {
-    postsData: Array<PostPropsType>,
-    newPostText: string,
-    addPost: () => void;
-    updateNewPostText: (newText: string) => void
-}
 
-
-const MyPosts = (props: MyPostsPropsType) => {
+const MyPosts = (props: any) => {
     let postsElement =
-        props.postsData.map(p => <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)
+        props.posts.map((p: any) =>
+            <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)
 
     let newPostElement:React.RefObject<HTMLTextAreaElement> = React.createRef()
 
     let onAddPost = () => {
-        // @ts-ignore
         props.addPost();
     }
     let onPostChange = () => {
         let text = newPostElement.current?.value;
-        // @ts-ignore
         props.updateNewPostText(text)
     }
     return (<div className={s.my_posts}>

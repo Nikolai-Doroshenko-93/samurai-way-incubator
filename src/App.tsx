@@ -5,44 +5,45 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Music from './components/Musik/Musik'
 import Settings from './components/Settings/Settings';
-import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import {BrowserRouter,Route} from 'react-router-dom'
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-type PostsItemPropsType = {
-  id: number,
-  post: string,
-  likes: number
-}
-type DialogsItemPropsType = {
-  id: number,
-  name: string
-}
-type MessageItemPropsType = {
-  id: number,
-  message: string
-}
 
-type ProfilePageType = {
-  posts: Array<PostsItemPropsType>,
-  newPostText: string
-}
-type MessagesPropsType = {
-  messages: Array<MessageItemPropsType>,
-  dialogs: Array<DialogsItemPropsType>
-  newMessageBody: string
-}
-
-type RootStatePropsType = {
-  profilePage: ProfilePageType,
-  messagesPage: MessagesPropsType,
-}
-type StatePropsType = {
-  state: RootStatePropsType
-  addPost: () => void;
-  updateNewPostText: (newText: string) => void
-}
-function App(props: StatePropsType) {
+// type PostsItemPropsType = {
+//   id: number,
+//   post: string,
+//   likes: number
+// }
+// type DialogsItemPropsType = {
+//   id: number,
+//   name: string
+// }
+// type MessageItemPropsType = {
+//   id: number,
+//   message: string
+// }
+//
+// type ProfilePageType = {
+//   posts: Array<PostsItemPropsType>,
+//   newPostText: string
+// }
+// type MessagesPropsType = {
+//   messages: Array<MessageItemPropsType>,
+//   dialogs: Array<DialogsItemPropsType>
+//   newMessageBody: string
+// }
+//
+// type RootStatePropsType = {
+//   profilePage: ProfilePageType,
+//   messagesPage: MessagesPropsType,
+// }
+// type StatePropsType = {
+//   state: RootStatePropsType
+//   addPost: () => void;
+//   updateNewPostText: (newText: string) => void
+// }
+function App(props: any) {
 
   return (
     <BrowserRouter>
@@ -59,10 +60,9 @@ function App(props: StatePropsType) {
           />
           <Route path='/dialogs'
                  render={() =>
-                     <Dialogs
-                         state = {props.state.messagesPage}
-                         // @ts-ignore
-                         dispatch={props.dispatch}
+                     <DialogsContainer
+                         //@ts-ignore
+                         store = {props.store}
                      />}
           />
           <Route path='/musik' render={() => <Music/>}/>
