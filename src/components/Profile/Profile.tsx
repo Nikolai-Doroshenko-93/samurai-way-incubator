@@ -21,15 +21,11 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 // }
 
 
-const Profile = (props: any) => {
-
-
+const Profile = () => {
     return (<div className= {s.profile__container}>
       <main >
         <ProfileInfo/>
-        <MyPostsContainer
-            store={props.store}
-        />
+        <MyPostsContainer/>
       </main>
     </div>)
 }

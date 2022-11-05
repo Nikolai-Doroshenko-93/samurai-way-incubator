@@ -20,7 +20,7 @@ const profileReducer = (state = initialState, action: any) => {
                 likesCount: 0
             }
             // @ts-ignore
-            state.posts.push(newPost);
+            state.posts.unshift(newPost);
             state.newPostText = '';
             break;
         case "UPDATE-NEW-POST-TEXT":

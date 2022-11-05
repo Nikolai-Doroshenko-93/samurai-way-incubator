@@ -43,7 +43,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 //   addPost: () => void;
 //   updateNewPostText: (newText: string) => void
 // }
-function App(props: any) {
+function App() {
 
   return (
     <BrowserRouter>
@@ -53,17 +53,11 @@ function App(props: any) {
         <div className='work-wrapper'>
           <Route path='/profile'
                  render={() =>
-                     <Profile
-                         //@ts-ignore
-                         store={props.store}
-                     />}
+                     <Profile/>}
           />
           <Route path='/dialogs'
                  render={() =>
-                     <DialogsContainer
-                         //@ts-ignore
-                         store = {props.store}
-                     />}
+                     <DialogsContainer/>}
           />
           <Route path='/musik' render={() => <Music/>}/>
           <Route path='/news' render={() => <News/>}/>
