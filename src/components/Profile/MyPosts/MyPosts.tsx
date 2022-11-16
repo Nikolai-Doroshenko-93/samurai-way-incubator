@@ -37,6 +37,7 @@ const MyPosts = (props: any) => {
               className={s.textarea}
               ref={newPostElement}
               onChange={onPostChange}
+              value={props.newPostText}
           />
         </div>
         <div>
@@ -47,7 +48,6 @@ const MyPosts = (props: any) => {
           </button>
         </div>
         <div className={s.posts_block}>
-        
           {postsElement}
         </div>
     </div>)
