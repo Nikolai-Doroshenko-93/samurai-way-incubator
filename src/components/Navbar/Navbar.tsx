@@ -46,6 +46,14 @@ const Navbar = () => {
                 Settings
               </NavLink>
             </li>
+            <li className={s.nav__ul__item}>
+              <NavLink
+                  to="/users"
+                  className={s.nav__ul__item__link}
+                  activeClassName={s.nav__ul__item__link_active}>
+                Users
+              </NavLink>
+            </li>
           </ul>
       </nav>
     </div>)

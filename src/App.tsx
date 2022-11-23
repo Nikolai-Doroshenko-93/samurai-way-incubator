@@ -8,6 +8,7 @@ import Settings from './components/Settings/Settings';
 import News from './components/News/News';
 import {BrowserRouter,Route} from 'react-router-dom'
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 // type PostsItemPropsType = {
@@ -61,6 +62,7 @@ function App() {
           />
           <Route path='/musik' render={() => <Music/>}/>
           <Route path='/news' render={() => <News/>}/>
+          <Route path='/users' render={() =><UsersContainer/>}/>
           <Route path='/settings' render={() => <Settings/>}/>
         </div>  
       </div>
