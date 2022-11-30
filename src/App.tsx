@@ -60,9 +60,9 @@ function App() {
                  render={() =>
                      <DialogsContainer/>}
           />
+          <Route path='/users' render={() =><UsersContainer/>}/>
           <Route path='/musik' render={() => <Music/>}/>
           <Route path='/news' render={() => <News/>}/>
-          <Route path='/users' render={() =><UsersContainer/>}/>
           <Route path='/settings' render={() => <Settings/>}/>
         </div>  
       </div>
