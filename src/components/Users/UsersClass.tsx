@@ -31,13 +31,65 @@ class User extends React.Component<any, any>{
         for(let i = 1; i <= pagesCount; i++) {
             pages.push(i)
         }
+        let firstPageInPagination
+        let lastPageInPagination
+        // if(this.props.currentPage == 1 || this.props.currentPage == 2 || this.props.currentPage == 3) {
+        //     firstPageInPagination = 1
+        // } else {
+        //     firstPageInPagination = this.props.currentPage - 2
+        // }
 
+        switch (this.props.currentPage) {
+            // @ts-ignore
+            case 1:
+                 firstPageInPagination = 1
+                 lastPageInPagination = this.props.currentPage + 4
+                break;
+            // @ts-ignore
+            case 2:
+                firstPageInPagination = 1
+                lastPageInPagination = this.props.currentPage + 3
+                break;
+            case 3:
+                firstPageInPagination = 1
+                lastPageInPagination = this.props.currentPage + 2
+                break;
+            // @ts-ignore
+            case pages[pages.length-1]:
+                firstPageInPagination = this.props.currentPage - 3
+                lastPageInPagination = this.props.currentPage
+                break;
+            // @ts-ignore
+            case pages[pages.length-2]:
+                firstPageInPagination = this.props.currentPage - 3
+                lastPageInPagination = this.props.currentPage + 1
+                break;
+            // @ts-ignore
+            case pages[pages.length-3]:
+                firstPageInPagination = this.props.currentPage - 3
+                lastPageInPagination = this.props.currentPage + 2
+                break;
+            default :
+                firstPageInPagination = this.props.currentPage - 2
+                lastPageInPagination = this.props.currentPage + 2
+        }
+
+
+
+        // if (this.props.currentPage == pages[pages.length-1]) {
+        //     lastPageInPagination = this.props.currentPage
+        // } else {
+        //     lastPageInPagination = this.props.currentPage + 2
+        // }
+
+        let pages2 = pages.slice(firstPageInPagination-1, lastPageInPagination)
 
 
        return(
         <div>
             <div className={s.pageNumberContainer}>
-                {pages.map(p => {
+                {
+                    pages2.map(p => {
 
                     return <div
                         // @ts-ignore
