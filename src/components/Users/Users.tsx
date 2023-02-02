@@ -1,20 +1,64 @@
 import React from "react";
+import userNotFoto from "../../assets/images/userNotFoto.png";
 import s from "../Users/Users.module.css"
-import axios from "axios";
-import userNotFoto from "../../assets/images/userNotFoto.png"
+
+
 
 let Users = (props: any) => {
-let getUsers = () => {
-    if(props.users.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                props.setUsers(response.data.items)
-            })
-        }
+    let pagesCount = Math.ceil((props.totalUsersCount / props.pageSize))
+    let pages = [];
+    for(let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
     }
+    let firstPageInPagination
+    let lastPageInPagination
+
+    switch (props.currentPage) {
+        case 1:
+            firstPageInPagination = 1
+            lastPageInPagination = props.currentPage + 4
+            break;
+        case 2:
+            firstPageInPagination = 1
+            lastPageInPagination = props.currentPage + 3
+            break;
+        case 3:
+            firstPageInPagination = 1
+            lastPageInPagination = props.currentPage + 2
+            break;
+        case pages[pages.length-1]:
+            firstPageInPagination = props.currentPage - 3
+            lastPageInPagination = props.currentPage
+            break;
+        case pages[pages.length-2]:
+            firstPageInPagination = props.currentPage - 3
+            lastPageInPagination = props.currentPage + 1
+            break;
+        case pages[pages.length-3]:
+            firstPageInPagination = props.currentPage - 3
+            lastPageInPagination = props.currentPage + 2
+            break;
+        default :
+            firstPageInPagination = props.currentPage - 2
+            lastPageInPagination = props.currentPage + 2
+    }
+
+    let pages2 = pages.slice(firstPageInPagination-1, lastPageInPagination)
     return <div>
-        <button onClick={getUsers}>getUsers</button>
-        {
-            props.users.map((u: any) => <div key={u.id}>
+            <div className={s.pageNumberContainer}>
+                {
+                    pages2.map(p => {
+
+                        return <div
+                            // @ts-ignore
+                            className = {s.pageNumber + ' ' + (props.currentPage === p && s.selectedPage)}
+                            onClick={(e) => {props.onPageChanged(p)}}
+                        >{p}
+                        </div>
+                    })}
+            </div>
+            {
+                props.users.map((u: any) => <div key={u.id}>
                 <span>
                     <div>
                         <img src={u.photos.small != null ?u.photos.small : userNotFoto} className={s.img}/>
@@ -34,8 +78,8 @@ let getUsers = () => {
                         <div>{"u.location.city"}</div>
                     </span>
                 </span>
-            </div>)
-        }
+                </div>)
+            }
         </div>
 }
 export default Users
