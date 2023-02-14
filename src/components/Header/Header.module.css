@@ -1,4 +1,8 @@
-.header__container { 
+.header_container {
     grid-area: h; 
     background-color: gray;
   }
+.loginBlock {
+    float: right;
+    cursor: pointer;
+}
