@@ -16,13 +16,14 @@ export const usersAPI = {
             .then(response => {
                 return response.data;
             })
+    },
+    getFollowUsers (id: string) {
+        return instance.get(`/follow/${id}`)
+            .then(response => {
+                return response.data;
+            })
     }
 }
 
-export const getFollowUsers = (currentPage = 1, pageSize = 10) => {
-    return instance.get(`/follow?page=${currentPage}&count=${pageSize}`)
-        .then(response => {
-            return response.data;
-        })
-}
+
 
