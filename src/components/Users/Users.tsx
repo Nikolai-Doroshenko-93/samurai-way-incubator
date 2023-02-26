@@ -3,6 +3,8 @@ import userNotFoto from "../../assets/images/userNotFoto.png";
 import s from "../Users/Users.module.css"
 import {NavLink} from "react-router-dom";
 import axios from "axios";
+import {useDispatch} from "react-redux";
+import {toggleFollowingInProgress} from "../redux/usersReducer";
 
 
 
@@ -14,6 +16,8 @@ let Users = (props: any) => {
     }
     let firstPageInPagination
     let lastPageInPagination
+
+    const dispatch = useDispatch()
 
     switch (props.currentPage) {
         case 1:
@@ -72,7 +76,7 @@ let Users = (props: any) => {
                                 disabled={props.followingInProgress.some((id: any) => id === u.id)}
                                 onClick={() => {
 
-                                    props.toggleFollowingInProgress(true, u.id)
+                                   props.toggleFollowingInProgress(true, u.id)
                                     console.log(props.followingInProgress)
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
                                         withCredentials: true,
@@ -94,6 +98,7 @@ let Users = (props: any) => {
                             : <button
                                 disabled={props.followingInProgress.some((id: any) => id === u.id)}
                                 onClick={()=> {
+                                    console.log('follow')
                                     props.toggleFollowingInProgress(true, u.id)
                                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                             withCredentials: true,
@@ -107,7 +112,7 @@ let Users = (props: any) => {
                                                 props.follow(u.id)
                                             }
                                             props.toggleFollowingInProgress(false, u.id)
-                                        });
+                                        })
                                     }
                             }>Follow</button>
                         }
