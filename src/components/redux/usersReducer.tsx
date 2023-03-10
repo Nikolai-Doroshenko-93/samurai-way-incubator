@@ -74,7 +74,6 @@ export const toggleIsFetching = (isFetching: boolean) => ({type: TOGGLE_IS_FETCH
 export const toggleFollowingInProgress = (followingInProgress: boolean, userId: any) => {
     return {type: TOGGLE_IS_FOLLOWING_PROGRESS, followingInProgress, userId}
 }
-
 export const getUsers = (currentPage: any, pageSize: any) => {
     return (dispatch: any) => {
         dispatch(toggleIsFetching(true))
@@ -85,7 +84,6 @@ export const getUsers = (currentPage: any, pageSize: any) => {
             dispatch(setTotalUsersCount(data.totalCount))
         });
 }}
-
 export const unfollow = (userId: string) => {
     return (dispatch: any) => {
         dispatch(toggleFollowingInProgress(true, userId))

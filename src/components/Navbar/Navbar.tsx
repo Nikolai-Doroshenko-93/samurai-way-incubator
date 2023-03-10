@@ -8,7 +8,7 @@ const Navbar = () => {
           <ul className={s.nav__ul}>
             <li className={s.nav__ul__item}>
               <NavLink  
-                to="/profile" 
+                to="/profile"
                 className={s.nav__ul__item__link} 
                 activeClassName={s.nav__ul__item__link_active}>
                 Profile
