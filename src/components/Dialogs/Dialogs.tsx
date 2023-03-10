@@ -3,6 +3,7 @@ import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import MessageItem from "./MessageItem/MessageItem";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../redux/dialogsReducer";
+import {Redirect} from "react-router-dom";
 
 
 // type DialogItemDataPropsType = {
@@ -45,6 +46,8 @@ const Dialogs = (props: any) => {
         //@ts-ignore
         props.sendMessage()
     }
+
+    if (!props.isAuth) return <Redirect to={("/login")}/>
     return (
         <div className={s.dialogs__container}>
             <ul className={s.dialogs__userUl}>

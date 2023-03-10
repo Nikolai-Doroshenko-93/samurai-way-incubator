@@ -1,11 +1,11 @@
 import React from 'react';
-import s from './Musik.module.css'
+import s from './Music.module.css'
 
-const Musik = () => {
+const Music = () => {
     return (<div>
         <header className={s.p}>
-            musik
+            music
         </header>
     </div>)
 }
-export default Musik;
+export default Music;
