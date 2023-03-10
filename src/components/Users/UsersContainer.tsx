@@ -2,44 +2,48 @@ import React from 'react'
 import {connect} from "react-redux";
 import {
     follow,
+    getUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleFollowingInProgress,
-    toggleIsFetching,
+    toggleFollowingInProgress,
     unfollow
 } from "../redux/usersReducer";
-import axios from "axios";
 import Users from './Users'
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
+
 
 
 
 class UsersContainer extends React.Component<any, any> {
 
+
     // constructor(props: any) { можно не писать если переадем управление толкьо этому конструктору
     //     super(props);
     // }
     componentDidMount() {
-        this.props.toggleIsFetching(true)
-
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-
-            .then(data => {
-                this.props.setUsers(data.items)
-                this.props.toggleIsFetching(false)
-                this.props.setTotalUsersCount(data.totalCount)
-            });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        // ====>
+        // this.props.toggleIsFetching(true)
+        //
+        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+        //
+        //     .then(data => {
+        //         this.props.setUsers(data.items)
+        //         this.props.toggleIsFetching(false)
+        //         this.props.setTotalUsersCount(data.totalCount)
+        //     });
     }
-    onPageChanged = (p: any) => {
-        this.props.setCurrentPage(p)
-        this.props.toggleIsFetching(true)
 
-        usersAPI.getUsers(p, this.props.pageSize)
-            .then(data => {
-                this.props.toggleIsFetching(false)
-                this.props.setUsers(data.items)
-            });
+
+    onPageChanged = (pageNumber: number) => {
+        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.setCurrentPage(pageNumber)
+        // this.props.toggleIsFetching(true)
+        //
+        // usersAPI.getUsers(p, this.props.pageSize)
+        //     .then(data => {
+        //         this.props.toggleIsFetching(false)
+        //         this.props.setUsers(data.items)
+        //     });
     }
 
     render() {
@@ -101,10 +105,8 @@ export default connect (mapStateToProps,
     {
         follow,
         unfollow,
-        setUsers,
         setCurrentPage,
-        setTotalUsersCount,
-        toggleIsFetching,
-        toggleFollowingInProgress
+        toggleFollowingInProgress,
+        getUsers: getUsers
     })(UsersContainer)
 

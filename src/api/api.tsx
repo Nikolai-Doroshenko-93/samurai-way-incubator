@@ -17,11 +17,12 @@ export const usersAPI = {
                 return response.data;
             })
     },
-    getFollowUsers (id: string) {
-        return instance.get(`/follow/${id}`)
-            .then(response => {
-                return response.data;
-            })
+    follow(userId: any) {
+        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`
+        )
+    },
+    unfollow(userId: any) {
+        return instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
     }
 }
 
