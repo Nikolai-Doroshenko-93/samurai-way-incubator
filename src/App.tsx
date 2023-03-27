@@ -22,9 +22,16 @@ function App() {
         <div className='work-wrapper'>
           <Route
               path='/profile/:userId?'
-              render={() => <ProfileContainer/>}
+              render={() =>
+                  //@ts-ignore
+                  <ProfileContainer/>}
           />
-          <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+
+          <Route path='/dialogs'
+                 render={() =>
+              //@ts-ignore
+              <DialogsContainer/>}
+          />
           <Route path='/users' render={() =><UsersContainer/>}/>
           <Route path='/music' render={() => <Music/>}/>
           <Route path='/news' render={() => <News/>}/>
