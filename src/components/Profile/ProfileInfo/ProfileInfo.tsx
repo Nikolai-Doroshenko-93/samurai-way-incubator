@@ -2,6 +2,7 @@ import React from "react";
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import userNotFoto from "../../../assets/images/userNotFoto.png";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props: any) => {
     if (!props.profile) {
@@ -10,8 +11,9 @@ const ProfileInfo = (props: any) => {
         return (
             <div>
                 <div>
-                    <img className={s.profile__background}
-                         src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg" alt="background"/>
+                    {/*<img className={s.profile__background}*/}
+                    {/*     src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg" alt="background"*/}
+                    {/*/>*/}
                 </div>
                 <div className={s.profile__info}>
                     <img className={s.profile__info__avatar}
@@ -21,6 +23,7 @@ const ProfileInfo = (props: any) => {
                     <div>
                         <p>{props.profile.fullName}</p>
                         <p>{props.profile.lookingForAJobDescription}</p>
+                        <ProfileStatus/>
                     </div>
                 </div>
             </div>
