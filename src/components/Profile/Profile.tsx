@@ -10,6 +10,8 @@ const Profile = (props: any) => {
       <main >
         <ProfileInfo
             profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
         />
         <MyPostsContainer/>
       </main>
