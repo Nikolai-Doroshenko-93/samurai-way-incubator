@@ -38,6 +38,7 @@ export const profileAPI = {
     getStatus(userId: string) {
         return instance.get(`profile/status/${userId}`)
     },
+    //lesson 73, need fix
     updateStatus(status: string) {
         return instance.put(`profile/status/`, {status: status})
     }
