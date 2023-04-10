@@ -103,7 +103,7 @@ let mapStateToProps = (state: any) => {
 // }
 
 
-export default compose (
+export default compose<React.ComponentType> (
     WithAuthRedirect,
     connect (mapStateToProps,
             {

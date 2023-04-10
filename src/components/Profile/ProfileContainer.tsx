@@ -6,7 +6,17 @@ import {withRouter} from "react-router-dom";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
 import {compose} from "redux";
 
+type PathParamsType = {
+    userId: string
+}
 
+// type MapStateToPropsType = {
+//     profile: ProfileType | null
+// }
+
+type MapDispatchToPropsType = {
+    getUserProfile: (userId: number) => void
+}
 
 
 class ProfileContainer extends React.Component<any, any> {
@@ -22,7 +32,6 @@ class ProfileContainer extends React.Component<any, any> {
 
     render() {
         return (
-            //@ts-ignore
             <Profile
                 {...this.props}
                 profile={this.props.profile}
@@ -38,7 +47,7 @@ let mapStateToProps = (state: any) => ({
     status: state.profilePage.status
 })
 
-export default compose(
+export default compose<React.ComponentType>(
     connect(mapStateToProps, {getProfile, getStatus, updateStatus}),
     withRouter,
     WithAuthRedirect
