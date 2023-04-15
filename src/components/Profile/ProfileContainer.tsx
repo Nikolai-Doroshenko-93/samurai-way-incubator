@@ -6,17 +6,17 @@ import {withRouter} from "react-router-dom";
 import {WithAuthRedirect} from "../../hoc/WithAuthRedirect";
 import {compose} from "redux";
 
-type PathParamsType = {
-    userId: string
-}
+// type PathParamsType = {
+//     userId: string
+// }
 
 // type MapStateToPropsType = {
 //     profile: ProfileType | null
 // }
 
-type MapDispatchToPropsType = {
-    getUserProfile: (userId: number) => void
-}
+// type MapDispatchToPropsType = {
+//     getUserProfile: (userId: number) => void
+// }
 
 
 class ProfileContainer extends React.Component<any, any> {

@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY"
+
 const SEND_MESSAGE = "SEND-MESSAGE"
 
 let initialState = {
@@ -16,30 +16,21 @@ let initialState = {
     {id: 4, name: "Katya"},
     {id: 5, name: "Lera"},
     {id: 6, name: "Sasha"}
-],
-    newMessageBody: ""
+]
 }
 
 const dialogsReducer = (state=initialState, action: any) => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            return {
-                ...state,
-                newMessageBody: action.body
-            };
         case SEND_MESSAGE: // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            let body = state.newMessageBody;
+            let body = action.newMessageBody;
             return {
                 ...state,
-                newMessageBody: "",
                 messages: [...state.messages, {id: 6, message: body}]
             };
     }
     return state;
 }
-export const sendMessageCreator = () => ({type: SEND_MESSAGE})
+export const sendMessageCreator = (newMessageBody: any) => ({type: SEND_MESSAGE, newMessageBody})
 
-export const updateNewMessageBodyCreator = (body: any) => ({
-    type: UPDATE_NEW_MESSAGE_BODY, body: body})
 export default dialogsReducer
