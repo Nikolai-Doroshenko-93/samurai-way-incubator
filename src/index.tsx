@@ -7,12 +7,15 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 
-    ReactDOM.render(
+    // @ts-ignore
+ReactDOM.render(
         <BrowserRouter>
             <Provider
                 // @ts-ignore
                 store={store}>
-            <App/>
+            <
+                // @ts-ignore
+                App/>
             </Provider>
         </BrowserRouter>,document.getElementById('root'));
 
