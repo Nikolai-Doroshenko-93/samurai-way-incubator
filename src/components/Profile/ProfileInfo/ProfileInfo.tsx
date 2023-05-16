@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import userNotFoto from "../../../assets/images/userNotFoto.png";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props: any) => {
     if (!props.profile) {
@@ -23,8 +24,8 @@ const ProfileInfo = (props: any) => {
                     <div>
                         <p>{props.profile.fullName}</p>
                         <p>{props.profile.lookingForAJobDescription}</p>
-                        <ProfileStatus
-                            //@ts-ignore
+                        <ProfileStatusWithHooks
+//@ts-ignore
                             status={props.status}
                             updateStatus={props.updateStatus}
                         />
