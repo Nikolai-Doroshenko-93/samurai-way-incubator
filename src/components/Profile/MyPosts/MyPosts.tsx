@@ -19,23 +19,25 @@ import {TextArea} from "../../common/FormControls/FormControls";
 // }
 
 
-const MyPosts = (props: any) => {
-    let postsElement =
-        props.posts.map((p: any) =>
-            <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)
+class MyPosts extends React.Component<any> {
+    render() {
+        let postsElement =
+            this.props.posts.map((p: any) =>
+                <Post id={p.id} post={p.post} likes={p.likes} key={p.id}/>)
 
-    let addPost = (values: any) => {
-        props.addPost(values.newPostText);
-    }
+        let addPost = (values: any) => {
+            this.props.addPost(values.newPostText);
+        }
 
-    return (
-        <div className={s.my_posts}>
+        return (
+            <div className={s.my_posts}>
                 <AddPostFormRedux onSubmit={addPost}/>
                 <div className={s.posts_block}>
-                  {postsElement}
+                    {postsElement}
                 </div>
             </div>
-    )
+        )
+    }
 }
 
 const maxLength16 = maxLengthCreator(16)
