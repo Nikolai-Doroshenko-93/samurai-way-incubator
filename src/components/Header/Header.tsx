@@ -4,8 +4,7 @@ import {NavLink} from "react-router-dom";
 
 const Header = (props: any) => {
     return (<div className={s.header_container}>
-        <header >
-            <div>header</div>
+        <header className={s.header_content}>
             <div className={s.loginBlock}>
                 {props.isAuth
                     ? <div>{props.login} - <button onClick={props.logout}>Log Out</button></div>

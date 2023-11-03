@@ -1,7 +1,14 @@
 .header_container {
     grid-area: h; 
-    background-color: gray;
+    background-color: #e44d3a;
+    width: 100%;
+    height: 200px;
   }
+.header_content {
+    max-width: 1500px;
+    width: 80%;
+    margin: 0 auto;
+}
 .loginBlock {
     float: right;
     cursor: pointer;
