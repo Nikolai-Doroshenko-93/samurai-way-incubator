@@ -39,17 +39,17 @@
 
 .app-wrapper {
   width: 100%;
-  display: grid; 
-  grid-template-areas: 
+  display: grid;
+  grid-template-areas:
   "h h h"
   "n p p"
-  ; 
+  ;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
 }
 .work-wrapper { 
   grid-area: p;
-  background-color: green; 
+  background-color: white;
  
 }
   
