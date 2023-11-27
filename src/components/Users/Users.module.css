@@ -25,4 +25,19 @@
 }
 .pageNumberContainer {
     display: flex;
+    width: 200px;
+    margin: 0 auto;
+}
+.usersUl {
+    display: grid;
+    grid-template-areas: "a a a";
+}
+.userBlock {
+    border: 2px solid gray;
+    margin: 30px;
+    width: 300px;
+}
+.userStatus {
+    width: 100%;
+    background-color: red;
 }

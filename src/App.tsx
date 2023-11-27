@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings';
 import News from './components/News/News';
-import {BrowserRouter, Route, withRouter} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Redirect, Route, withRouter} from 'react-router-dom'
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -29,11 +29,12 @@ class App extends React.Component {
             return <Preloader/>
         } else {
             return (
-                <BrowserRouter>
+                <HashRouter>
                     <div className="app-wrapper">
                         <HeaderContainer/>
                         <Navbar/>
                         <div className='work-wrapper'>
+
                             <Route
                                 path='/profile/:userId?'
                                 render={() =>
@@ -49,9 +50,11 @@ class App extends React.Component {
                             <Route path='/news' render={() => <News/>}/>
                             <Route path='/settings' render={() => <Settings/>}/>
                             <Route path='/login' render={() => <Login/>}/>
+                            <Route path={'/'}  render={() =>
+                                <Redirect to='/profile'/>}/>
                         </div>
                     </div>
-                </BrowserRouter>
+                </HashRouter>
             )
         }
     }

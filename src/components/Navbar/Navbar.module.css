@@ -3,8 +3,12 @@
   background-color: black;
 }
 
+.nav {
+  position: fixed;
+}
 .nav__item {
   list-style: none;
+  position: fixed;
 }
 
 .nav__ul__item__link{
