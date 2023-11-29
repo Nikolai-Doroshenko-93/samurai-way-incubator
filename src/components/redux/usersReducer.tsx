@@ -89,7 +89,7 @@ export const unfollow = (userId: string) => {
         dispatch(toggleFollowingInProgress(true, userId))
         usersAPI.unfollow(userId)
             .then(response => {
-                if (response.data.resultCode == 0) {
+                if (response.data.resultCode === 0) {
                    dispatch(unfollowSuccess(userId))
                 }
                 dispatch(toggleFollowingInProgress(false, userId))
