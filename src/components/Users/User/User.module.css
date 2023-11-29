@@ -1,0 +1,15 @@
+.userBlock {
+    border: 2px solid gray;
+    margin: 30px;
+    width: 200px;
+}
+.userStatus {
+    width: 100%;
+    background-color: red;
+}
+.img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    object-fit: cover;
+}

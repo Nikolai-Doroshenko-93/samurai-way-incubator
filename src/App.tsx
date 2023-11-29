@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Music from './components/Music/Music'
 import Settings from './components/Settings/Settings';
 import News from './components/News/News';
-import {BrowserRouter, HashRouter, Redirect, Route, withRouter} from 'react-router-dom'
+import {HashRouter, Redirect, Route, withRouter} from 'react-router-dom'
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";

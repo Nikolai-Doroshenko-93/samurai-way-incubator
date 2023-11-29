@@ -1,43 +1,6 @@
-.img {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    object-fit: cover;
-}
 
-.pageNumber {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: black;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-    margin: 5px;
-    cursor: pointer
-}
-.selectedPage {
-    font-weight: bold;
-    color: white;
-}
-.pageNumberContainer {
-    display: flex;
-    width: 200px;
-    margin: 0 auto;
-}
+
 .usersUl {
     display: grid;
     grid-template-areas: "a a a";
-}
-.userBlock {
-    border: 2px solid gray;
-    margin: 30px;
-    width: 300px;
-}
-.userStatus {
-    width: 100%;
-    background-color: red;
 }
