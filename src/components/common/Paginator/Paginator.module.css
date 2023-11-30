@@ -1,4 +1,6 @@
-
+.pagesUl {
+    display: flex;
+}
 .pageNumber {
     width: 30px;
     height: 30px;
@@ -15,7 +17,7 @@
 }
 .selectedPage {
     font-weight: bold;
-    color: white;
+    color: red;
 }
 .pageNumberContainer {
     display: flex;
