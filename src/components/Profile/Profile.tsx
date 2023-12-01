@@ -9,9 +9,11 @@ const Profile = (props: any) => {
     return (<div className= {s.profile__container}>
       <main >
         <ProfileInfo
+            isOwner={props.isOwner}
             profile={props.profile}
             status={props.status}
             updateStatus={props.updateStatus}
+            savePhoto={props.savePhoto}
         />
         <MyPostsContainer/>
       </main>
