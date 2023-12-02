@@ -28,13 +28,11 @@ const ProfileInfo = (props: any) => {
                          alt="avatar"
                     />
                     {props.isOwner && <input type={"file"} onChange={mainPhotoSelected}/>}
-                    {console.log(props.isOwner)}
                     </div>
                     <div>
                         <p>{props.profile.fullName}</p>
                         <p>{props.profile.lookingForAJobDescription}</p>
                         <ProfileStatusWithHooks
-//@ts-ignore
                             status={props.status}
                             updateStatus={props.updateStatus}
                         />

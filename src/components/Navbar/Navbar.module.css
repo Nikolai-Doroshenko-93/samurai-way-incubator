@@ -1,6 +1,7 @@
 .nav__container { 
   grid-area: n;
   background-color: black;
+  min-width: 150px;
 }
 
 .nav {

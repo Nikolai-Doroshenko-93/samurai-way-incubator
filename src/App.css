@@ -1,7 +1,13 @@
+
+.app-wrapper {
+  margin: 0px auto;
+  max-width: 1000px
+}
 .App {
   text-align: center;
 }
-
+.work-wrapper {
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
