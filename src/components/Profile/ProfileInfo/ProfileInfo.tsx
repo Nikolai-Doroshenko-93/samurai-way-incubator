@@ -29,18 +29,42 @@ const ProfileInfo = (props: any) => {
                     />
                     {props.isOwner && <input type={"file"} onChange={mainPhotoSelected}/>}
                     </div>
-                    <div>
-                        <p>{props.profile.fullName}</p>
-                        <p>{props.profile.lookingForAJobDescription}</p>
-                        <ProfileStatusWithHooks
-                            status={props.status}
-                            updateStatus={props.updateStatus}
-                        />
-                    </div>
+                    <ProfileStatusWithHooks
+                        status={props.status}
+                        updateStatus={props.updateStatus}
+                    />
+                    <ProfileData profile={props.profile}/>
                 </div>
             </div>
         )
     }
+}
+const ProfileData = (props: any) => {
+    return (
+        <div>
+            <p><b>Full Name</b>:{props.profile.fullName}</p>
+            <p>{props.profile.lookingForAJobDescription}</p>
+            <div>
+                <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
+            </div>
+            { props.profile.lookingForAJob &&
+                <div>
+                    <b>Professional skills</b>: {props.profile.lookingForAJobDescription}
+                </div>
+            }
+            <div>
+                <b>About Me</b>: {props.profile.aboutMe}
+            </div>
+            <div>
+                <b>Contacts</b>: {Object.keys(props.profile.contacts).map(key => {
+                return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>
+            })}
+            </div>
+        </div>
+    )
+}
+const Contact = (props: any) => {
+    return <div><b>{props.contactTitle}: {props.contactValue}</b></div>
 }
 
 export default ProfileInfo
