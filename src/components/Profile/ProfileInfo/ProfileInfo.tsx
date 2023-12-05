@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import userNotFoto from "../../../assets/images/userNotFoto.png";
-import ProfileStatus from "../ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
+import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
+import ProfileDataReduxForm from "./ProfileDataForm/ProfileDataForm";
+import ProfileDataFormFinally from "./ProfileDataForm/ProfileDataForm";
 
 const ProfileInfo = (props: any) => {
+
+    const [editMode, setEditMode] = useState(false)
+
     if (!props.profile) {
         return <Preloader/>
     } else {
@@ -29,19 +34,26 @@ const ProfileInfo = (props: any) => {
                     />
                     {props.isOwner && <input type={"file"} onChange={mainPhotoSelected}/>}
                     </div>
+                    {editMode
+                        //@ts-ignore
+                        ? <ProfileDataReduxForm profile={props.profile}/>
+                        : <ProfileData profile={props.profile} isOwner={props.isOwner} goToEditMode={() => {setEditMode(true)}}/>}
                     <ProfileStatusWithHooks
                         status={props.status}
                         updateStatus={props.updateStatus}
                     />
-                    <ProfileData profile={props.profile}/>
+
                 </div>
             </div>
         )
     }
 }
+
 const ProfileData = (props: any) => {
     return (
         <div>
+            {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
+
             <p><b>Full Name</b>:{props.profile.fullName}</p>
             <p>{props.profile.lookingForAJobDescription}</p>
             <div>
@@ -63,7 +75,7 @@ const ProfileData = (props: any) => {
         </div>
     )
 }
-const Contact = (props: any) => {
+export const Contact = (props: any) => {
     return <div><b>{props.contactTitle}: {props.contactValue}</b></div>
 }
 
