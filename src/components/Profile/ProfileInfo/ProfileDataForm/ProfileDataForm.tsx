@@ -5,9 +5,9 @@ import {reduxForm} from "redux-form";
 
 
 const ProfileDataForm = (props: any) => {
-    return <form>
+    return <form onSubmit={props.handleSubmit}>
             <div>
-            <div><button onClick={() => {}}>save</button></div>
+            <div><button>save</button></div>
 
             <p><b>Full Name</b>:{createField("Full name", "fullName", [], <Input/>, "input")}</p>
             <div>
@@ -15,7 +15,7 @@ const ProfileDataForm = (props: any) => {
             </div>
             { props.profile.lookingForAJob &&
                 <div>
-                    <b>Professional skills</b>: {props.profile.lookingForAJobDescription}
+                    <b>Professional skills</b>: {createField("Professional skills", "lookingForAJobDescription", [], <TextArea/>, "")}
                 </div>
             }
             <div>
@@ -28,11 +28,14 @@ const ProfileDataForm = (props: any) => {
             </div>
         </div>
     </form>
+
 }
 
 const ProfileDataReduxForm = reduxForm<any>({
-    form: 'edit-profile'
-})(ProfileDataForm)
+        form: 'edit-profile'
+    })(ProfileDataForm)
+
+
 
 // const ProfileDataFormFinally = (profile: any) => {
 //     //@ts-ignore

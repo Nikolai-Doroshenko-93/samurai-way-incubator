@@ -3,9 +3,8 @@ import s from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 import userNotFoto from "../../../assets/images/userNotFoto.png";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
-import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 import ProfileDataReduxForm from "./ProfileDataForm/ProfileDataForm";
-import ProfileDataFormFinally from "./ProfileDataForm/ProfileDataForm";
+
 
 const ProfileInfo = (props: any) => {
 
@@ -42,7 +41,6 @@ const ProfileInfo = (props: any) => {
                         status={props.status}
                         updateStatus={props.updateStatus}
                     />
-
                 </div>
             </div>
         )
