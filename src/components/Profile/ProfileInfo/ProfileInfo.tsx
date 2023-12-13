@@ -56,7 +56,6 @@ const ProfileData = (props: any) => {
             {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
 
             <p><b>Full Name</b>:{props.profile.fullName}</p>
-            <p>{props.profile.lookingForAJobDescription}</p>
             <div>
                 <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
             </div>

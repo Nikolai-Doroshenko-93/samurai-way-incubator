@@ -16,7 +16,6 @@ const ProfileDataForm = (props: any) => {
                 <div>
                     <b>Professional skills</b>: {createField("Professional skills", "lookingForAJobDescription", [], TextArea, "")}
                 </div>
-
             <div>
                 <b>About Me</b>: {createField("About me", "aboutMe", [], TextArea, "")}
             </div>
