@@ -18,6 +18,9 @@ const ProfileInfo = (props: any) => {
             if(e.target.files.length)
                 props.savePhoto(e.target.files[0])
         }
+        const onSubmit = (formData: any) => {
+            props.saveProfile(formData)
+        }
         return (
             <div>
                 <div>
@@ -35,7 +38,7 @@ const ProfileInfo = (props: any) => {
                     </div>
                     {editMode
                         //@ts-ignore
-                        ? <ProfileDataReduxForm profile={props.profile}/>
+                        ? <ProfileDataReduxForm profile={props.profile} onSubmit={onSubmit}/>
                         : <ProfileData profile={props.profile} isOwner={props.isOwner} goToEditMode={() => {setEditMode(true)}}/>}
                     <ProfileStatusWithHooks
                         status={props.status}
