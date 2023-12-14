@@ -44,7 +44,6 @@ class ProfileContainer extends React.Component<any, any> {
     }
 
     render() {
-        console.log(this.props.match.params.userId)
         return (
             <Profile
                 {...this.props}

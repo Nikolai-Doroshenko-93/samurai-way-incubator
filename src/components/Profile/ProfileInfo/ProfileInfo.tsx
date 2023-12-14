@@ -19,7 +19,10 @@ const ProfileInfo = (props: any) => {
                 props.savePhoto(e.target.files[0])
         }
         const onSubmit = (formData: any) => {
-            props.saveProfile(formData)
+            props.saveProfile(formData).then(()=>{
+                setEditMode(false)
+            })
+
         }
         return (
             <div>
@@ -38,7 +41,7 @@ const ProfileInfo = (props: any) => {
                     </div>
                     {editMode
                         //@ts-ignore
-                        ? <ProfileDataReduxForm profile={props.profile} onSubmit={onSubmit}/>
+                        ? <ProfileDataReduxForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
                         : <ProfileData profile={props.profile} isOwner={props.isOwner} goToEditMode={() => {setEditMode(true)}}/>}
                     <ProfileStatusWithHooks
                         status={props.status}
@@ -55,7 +58,7 @@ const ProfileData = (props: any) => {
         <div>
             {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
 
-            <p><b>Full Name</b>:{props.profile.fullName}</p>
+            <div><b>Full Name</b>:{props.profile.fullName}</div>
             <div>
                 <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
             </div>
@@ -76,7 +79,7 @@ const ProfileData = (props: any) => {
     )
 }
 export const Contact = (props: any) => {
-    return <div><b>{props.contactTitle}: {props.contactValue}</b></div>
+    return <div><b>{props.contactTitle}</b>: {props.contactValue}</div>
 }
 
 export default ProfileInfo

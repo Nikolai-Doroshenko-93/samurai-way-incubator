@@ -2,13 +2,20 @@ import React from "react";
 import {Contact} from "../ProfileInfo";
 import {createField, Input, TextArea} from "../../../common/FormControls/FormControls";
 import {reduxForm} from "redux-form";
+import style from "../../../common/FormControls/FormControl.module.css";
 
 
 const ProfileDataForm = (props: any) => {
     return <form onSubmit={props.handleSubmit}>
             <div><button>save</button></div>
+            {props.error &&
+            <div className={style.formSummaryError}>
+                {props.error}
+            </div>
+        }
             <div>
-                <b>Full Name</b>:{createField("Full name", "fullName", [], Input, "input")}</div>
+                <b>Full Name</b>:{createField("Full name", "fullName", [], Input, "input")}
+            </div>
             <div>
                 <b>Looking for a job?</b>: {createField("", "lookingForAJob", [], Input, "checkbox", "")}
             </div>
@@ -20,12 +27,13 @@ const ProfileDataForm = (props: any) => {
                 <b>About Me</b>: {createField("About me", "aboutMe", [], TextArea, "")}
             </div>
             <div>
-            {/*    <b>Contacts</b>: {Object.keys(props.profile.contacts).map(key => {*/}
-            {/*    return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>*/}
-            {/*})}*/}
+                <b>Contacts</b>: {Object.keys(props.profile.contacts).map(key => {
+                return <div key={key}>
+                    <b>{key}: {createField(key, "contacts." + key, [], Input, "input")}</b>
+                </div>
+            })}
             </div>
     </form>
-
 }
 
 const ProfileDataReduxForm = reduxForm<any>({
