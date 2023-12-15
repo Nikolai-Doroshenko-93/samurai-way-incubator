@@ -30,7 +30,7 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
         </form>
     )}
 
-const LoginReduxForm = reduxForm<FormDataType>({
+const LoginReduxForm = reduxForm<any>({
     form: 'login'
 })(LoginForm)
 
@@ -40,7 +40,6 @@ const Login = (props: any) => {
     const onSubmit = (formData: FormDataType) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
-
     if (props.isAuth) {
         return <Redirect to={"/profile"}/>
     } else {
