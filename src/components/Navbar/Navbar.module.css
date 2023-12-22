@@ -1,19 +1,28 @@
-.nav__container { 
+
+.nav__background {
+  background-color: #f2f2f2;
+}
+.nav__container {
   grid-area: n;
-  background-color: black;
   min-width: 150px;
+  height: 100%;
+  margin: 20px 10px 20px 20px;
+  background-color: white;
 }
 
 .nav {
-  position: fixed;
+
+}
+.nav__ul {
+  list-style: none;position: fixed;
+
 }
 .nav__item {
-  list-style: none;
-  position: fixed;
+
 }
 
 .nav__ul__item__link{
-  color:white;
+  color:black;
   text-decoration: none;
 }
 

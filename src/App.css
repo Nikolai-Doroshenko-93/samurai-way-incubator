@@ -1,13 +1,30 @@
 
 .app-wrapper {
-  margin: 0px auto;
-  max-width: 1000px
+  margin: 0 auto;
+  background-color: #f2f2f2;
 }
 .App {
   text-align: center;
 }
-.work-wrapper {
+
+.work-wrapper-container {
+  background-color: #f2f2f2;
 }
+.work-wrapper {
+  max-width: 1000px;
+  display: grid;
+  grid-template-areas:
+  "n p p"
+;
+  margin: 0 auto
+}
+.variable-work-block {
+  display: grid;
+  grid-area: p;
+  margin: 20px 20px 20px 10px;
+  background-color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -46,18 +63,11 @@
 .app-wrapper {
   width: 100%;
   height: 100vh;
-  display: grid;
-  grid-template-areas:
-  "h h h"
-  "n p p"
-  ;
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+
+
 }
-.work-wrapper { 
-  grid-area: p;
-  background-color: white;
- 
+.work-wrapper {
+
 }
   
 

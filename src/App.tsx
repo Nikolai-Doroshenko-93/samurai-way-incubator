@@ -30,28 +30,31 @@ class App extends React.Component {
         } else {
             return (
                 <HashRouter>
+
                     <div className="app-wrapper">
                         <HeaderContainer/>
-                        <Navbar/>
-                        <div className='work-wrapper'>
-
-                            <Route
-                                path='/profile/:userId?'
-                                render={() =>
-                                    <ProfileContainer/>}
-                            />
-
-                            <Route path='/dialogs'
-                                   render={() =>
-                                       <DialogsContainer/>}
-                            />
-                            <Route path='/users' render={() => <UsersContainer/>}/>
-                            <Route path='/music' render={() => <Music/>}/>
-                            <Route path='/news' render={() => <News/>}/>
-                            <Route path='/settings' render={() => <Settings/>}/>
-                            <Route path='/login' render={() => <Login/>}/>
-                            <Route path={'/'}  render={() =>
-                                <Redirect to='/profile'/>}/>
+                        <div className='work-wrapper-container'>
+                            <div className='work-wrapper'>
+                                <Navbar/>
+                                <div className='variable-work-block'>
+                                    <Route
+                                        path='/profile/:userId?'
+                                        render={() =>
+                                            <ProfileContainer/>}
+                                    />
+                                    <Route path='/dialogs'
+                                           render={() =>
+                                               <DialogsContainer/>}
+                                    />
+                                    <Route path='/users' render={() => <UsersContainer/>}/>
+                                    <Route path='/music' render={() => <Music/>}/>
+                                    <Route path='/news' render={() => <News/>}/>
+                                    <Route path='/settings' render={() => <Settings/>}/>
+                                    <Route path='/login' render={() => <Login/>}/>
+                                    <Route path={'/'}  render={() =>
+                                        <Redirect to='/profile'/>}/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </HashRouter>
