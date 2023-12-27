@@ -54,7 +54,7 @@ class App extends React.Component {
                                     <Route path={'/'}  render={() =>
                                         <Redirect to='/profile'/>}/>
                                 </div>
-                            </div>
+                            </ div>
                         </div>
                     </div>
                 </HashRouter>
