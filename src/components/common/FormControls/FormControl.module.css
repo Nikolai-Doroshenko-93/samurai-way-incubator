@@ -1,10 +1,37 @@
 .formControl {
 
 }
+.input {
+   height: 30px;
+   margin: 0px;
+   background: white;
+   /*border: 1px solid #615EFB;*/
+   border: none;
+   border-bottom: 2px solid #615EFB;
+   box-shadow: none;
+}
+.input:focus {
+   outline: none;
+   border-bottom: 2px solid #49f8a1;
+   box-shadow: none;
+}
 .formSummaryError {
    border: 1px solid red;
    padding: 5px;
    color: red
+}
+.textarea {
+   height: 60px;
+   margin: 0px;
+   background: white;
+   border: none;
+   border-bottom: 2px solid #615EFB;
+   box-shadow: none;
+}
+.textarea:focus {
+   outline: none;
+   border-bottom: 2px solid #49f8a1;
+   box-shadow: none;
 }
 .error {
    border: 1px solid red

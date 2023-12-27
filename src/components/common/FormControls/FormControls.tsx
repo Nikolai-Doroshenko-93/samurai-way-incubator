@@ -20,12 +20,12 @@ const FormControl = ({input, meta, child, element, ...props}: any) => {
 
 export const TextArea = (props: any) => {
     const {input, meta, child, ...restProps} = props
-    return <FormControl {...props} ><textarea {...input} {...props}/></FormControl>
+    return <FormControl {...props} ><textarea {...input} {...props} className={styles.textarea}/></FormControl>
 }
 
 export const Input = (props: any) => {
     const {input, meta, child, ...restProps} = props
-    return (<FormControl {...props}><input {...input} {...props}/></FormControl>)
+    return (<FormControl {...props}><input {...input} {...props} className={styles.input}/></FormControl>)
 }
 
 export const createField = (placeholder: any, name: string, validate: any, component: any, type?:string, text = " ") => {
