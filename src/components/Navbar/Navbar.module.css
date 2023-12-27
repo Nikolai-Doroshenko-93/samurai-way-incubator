@@ -15,8 +15,8 @@
 
 }
 .nav__ul {
-  list-style: none;position: fixed;
-
+  list-style: none;
+  position: fixed;
 }
 .nav__item {
 
@@ -28,5 +28,5 @@
 }
 
 .nav__ul__item__link_active {
-  color:gold
+  color:#615EFB
 }

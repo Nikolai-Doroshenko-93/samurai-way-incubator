@@ -5,7 +5,8 @@ import userNotFoto from "../../../assets/images/userNotFoto.png";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 import ProfileDataReduxForm from "./ProfileDataForm/ProfileDataForm";
 import "./ProfileInfo.css"
-import Icons from "../../../assets/icons";
+import {IconPhoto} from "../../../assets/icons/IconPhoto";
+import {Button} from "../../common/Button/Button";
 
 const ProfileInfo = (props: any) => {
 
@@ -27,32 +28,18 @@ const ProfileInfo = (props: any) => {
         }
         return (
             <div>
-                <div>
-                    {/*<img className={s.profile__background}*/}
-                    {/*     src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg" alt="background"*/}
-                    {/*/>*/}
-                </div>
                 <div className='profile__info'>
                     <div>
                     <img className='profile__info__avatar'
                          src={!props.profile.photos.large ? userNotFoto : props.profile.photos.large}
                          alt="avatar"
                     />
-                        {props.isOwner &&
-                            <div className='input_select_photo__wrapper'>
-                                <input type={"file"} onChange={mainPhotoSelected} id='input_select_photo'/>
-
-                            </div>}
-                        {props.isOwner &&
+                        {editMode &&
                             <div className="input__wrapper">
-                                <input name="file" type="file" id="input__file" className="input input__file" multiple/>
+                                <input name="file" type="file" onChange={mainPhotoSelected} id="input__file" className="input input__file" multiple/>
                                     <label htmlFor="input__file" className="input__file-button">
                                         <span className="input__file-icon-wrapper">
-                                            <Icons className="input__file-icon"
-                                            name={'input_select_photo'}
-                                            color="rgb(106, 247, 151)"
-                                            size={"25px"}
-                                            />
+                                            <IconPhoto/>
                                         </span>
                                         <span className="input__file-button-text">Выберите файл</span>
                                     </label>
@@ -77,8 +64,6 @@ const ProfileInfo = (props: any) => {
 const ProfileData = (props: any) => {
     return (
         <div>
-            {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
-
             <div><b>Full Name</b>:{props.profile.fullName}</div>
             <div>
                 <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
@@ -96,6 +81,7 @@ const ProfileData = (props: any) => {
                 return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>
             })}
             </div>
+            {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
         </div>
     )
 }

@@ -1,5 +1,6 @@
 .profile__info {
     display: flex;
+  justify-content: space-around;
   }
   .profile__info__avatar {
     width: 200px;
@@ -49,11 +50,11 @@
 
 .input__file-button {
   width: 100%;
-  max-width: 290px;
-  height: 60px;
-  background: #1bbc9b;
+  max-width: 200px;
+  height: 35px;
+  background: #7573fb;
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 0.9rem;
   font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,10 +1,11 @@
 .header_container {
 
-    background-color: #e44d3a;
+    background-color: #615EFB;
     height: 60px;
   }
 .header_content {
     width:80%;
+    max-width: 960px;
     margin: 0 auto;
 }
 .loginBlock {

@@ -1,6 +1,7 @@
 import React from 'react';
 import s from'./Navbar.module.css'
 import {NavLink} from 'react-router-dom'
+import {Button} from "../common/Button/Button";
 
 const Navbar = () => {
     return (
@@ -57,6 +58,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
+            <Button/>
         </nav>
       </div>
         </div>)

@@ -14,7 +14,7 @@
   max-width: 1000px;
   display: grid;
   grid-template-areas:
-  "n p p"
+  "n p p p p p p p"
 ;
   margin: 0 auto
 }
