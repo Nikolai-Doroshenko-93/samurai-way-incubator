@@ -81,7 +81,7 @@ const ProfileData = (props: any) => {
                 return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>
             })}
             </div>
-            {props.isOwner && <div><button onClick={props.goToEditMode}>edit</button></div>}
+            {props.isOwner && <Button buttonTitle='Edit profile' width='150px' onClick={props.goToEditMode}/>}
         </div>
     )
 }

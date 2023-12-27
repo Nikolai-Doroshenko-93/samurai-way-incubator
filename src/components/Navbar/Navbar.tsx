@@ -58,7 +58,6 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <Button/>
         </nav>
       </div>
         </div>)

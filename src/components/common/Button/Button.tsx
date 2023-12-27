@@ -9,7 +9,7 @@ export const Button = (props: any) => {
         color: props.color
     }
     return (<div style={style} className={s.wrapper}>
-        <button  className={s.button}></button>
-        <p>{props.buttonTitle}</p>
+        <button  className={s.button} onClick={props.onClick}></button>
+        <p className={s.buttonTitle}>{props.buttonTitle}</p>
     </div>)
 }
