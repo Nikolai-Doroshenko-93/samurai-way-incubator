@@ -6,6 +6,7 @@
     border-radius: 3px;
     cursor: pointer;
     position: relative;
+    margin: 20px;
 }
 .wrapper:hover {
     background-color: #6B67FA;

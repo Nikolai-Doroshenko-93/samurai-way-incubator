@@ -1,5 +1,6 @@
-.my_posts {
-    background-color: aquamarine;
+.my_postsWrapper {
+    background-color: white;
+    border: 1px solid #E5E5E5
 }
 .posts_block {
 

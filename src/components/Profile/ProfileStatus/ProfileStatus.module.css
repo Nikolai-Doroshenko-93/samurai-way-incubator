@@ -1,0 +1,23 @@
+.statusBox {
+    display: flex;
+    gap: 10px;
+    cursor: pointer
+}
+.iconBox {
+    cursor: pointer
+}
+
+.input {
+    height: 30px;
+    margin: 0px;
+    background: white;
+    /*border: 1px solid #615EFB;*/
+    border: none;
+    border-bottom: 2px solid #615EFB;
+    box-shadow: none;
+}
+.input:focus {
+    outline: none;
+    border-bottom: 2px solid #82B440;
+    box-shadow: none;
+}

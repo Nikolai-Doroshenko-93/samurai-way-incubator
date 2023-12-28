@@ -32,7 +32,7 @@ const MyPosts = React.memo((props: any) => {
     }
 
     return (
-        <div className={s.my_posts}>
+        <div className={s.my_postsWrapper}>
             <AddPostFormRedux onSubmit={addPost}/>
             <div className={s.posts_block}>
                 {postsElement}

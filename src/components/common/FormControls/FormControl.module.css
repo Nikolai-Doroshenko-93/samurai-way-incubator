@@ -12,7 +12,7 @@
 }
 .input:focus {
    outline: none;
-   border-bottom: 2px solid #49f8a1;
+   border-bottom: 2px solid #82B440;
    box-shadow: none;
 }
 .formSummaryError {
@@ -36,3 +36,9 @@
 .error {
    border: 1px solid red
 }
+/*.boxFormItem {*/
+/*   display: flex;*/
+/*   justify-content: space-between;*/
+/*   align-items: center;*/
+/*   align-content: center;*/
+/*}*/

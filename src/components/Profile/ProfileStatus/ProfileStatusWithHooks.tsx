@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import s from'./ProfileStatus.module.css'
+import {IconPensilForStatus} from "../../../assets/icons/IconPensilForStatus";
 
 
 const ProfileStatusWithHooks = (props: any) => {
@@ -24,12 +26,12 @@ const ProfileStatusWithHooks = (props: any) => {
     return (
         <div>
             { !editMode &&
-                <div>
-                    <b>Status</b>:
+                <div className={s.statusBox}>
                     <span
                         onDoubleClick={activateEditMode}>
                         {props.status || '======'}
                     </span>
+                    <span onClick={activateEditMode} className={s.iconBox}><IconPensilForStatus /></span>
                 </div> }
             { editMode && <div>
                 <input
@@ -37,6 +39,7 @@ const ProfileStatusWithHooks = (props: any) => {
                      onChange={onStatusChange}
                      value={status}
                      autoFocus={true}
+                     className={s.input}
                 ></input>
             </div> }
         </div>
