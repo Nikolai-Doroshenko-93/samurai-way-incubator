@@ -8,9 +8,6 @@ export const Toggle = (props: any) => {
 
     return (<div>
         <div className="toggle-container">
-            {/*<div className={"toggle-input"}>*/}
-            {/*    {createField("", "lookingForAJob", [], Input, "checkbox", "")}*/}
-            {/*</div>*/}
                 <input className="toggle-input" type="checkbox"/>
                 <svg className="toggle" viewBox="0 0 292 142" xmlns="http://www.w3.org/2000/svg">
                     <path className="toggle-background"

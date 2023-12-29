@@ -1,8 +1,9 @@
 import React from "react";
 import {Contact} from "../ProfileInfo";
-import {createField, Input, TextArea} from "../../../common/FormControls/FormControls";
+import {CheckBox, createField, Input, TextArea} from "../../../common/FormControls/FormControls";
 import {reduxForm} from "redux-form";
 import style from "../../../common/FormControls/FormControl.module.css";
+import s from './ProfileDataForm.module.css'
 import {Button} from "../../../common/Button/Button";
 import {Toggle} from "../../../common/Toggle/Toggle";
 
@@ -17,8 +18,9 @@ const ProfileDataForm = (props: any) => {
             <div className={style.boxFormItem}>
                 <b>Full Name</b>:{createField("Full name", "fullName", [], Input, "input")}
             </div>
-            <div className={style.boxFormItem}>
-                <b>Looking for a job?</b>:  {createField("", "lookingForAJob", [], Input, "checkbox", "")}
+            <div className={s.boxFormItem}>
+                <b>Looking for a job?</b>:
+                        {createField("", "lookingForAJob", [], CheckBox, "checkbox", "")}
             </div>
         {/*{ props.profile.lookingForAJob &&*/}
                 <div className={style.boxFormItem}>
