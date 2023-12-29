@@ -2,6 +2,7 @@ import React from 'react';
 import s from'./Navbar.module.css'
 import {NavLink} from 'react-router-dom'
 import {Button} from "../common/Button/Button";
+import {Toggle} from "../common/Toggle/Toggle";
 
 const Navbar = () => {
     return (

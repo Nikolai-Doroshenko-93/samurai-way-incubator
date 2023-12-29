@@ -35,6 +35,7 @@ export const createField = (placeholder: any, name: string, validate: any, compo
                               validate={validate}
                               component={component}
                               type={type}
+
                 /> {text}
             </div>
 }

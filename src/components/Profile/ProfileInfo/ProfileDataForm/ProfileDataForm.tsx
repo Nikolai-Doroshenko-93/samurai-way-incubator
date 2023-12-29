@@ -4,6 +4,7 @@ import {createField, Input, TextArea} from "../../../common/FormControls/FormCon
 import {reduxForm} from "redux-form";
 import style from "../../../common/FormControls/FormControl.module.css";
 import {Button} from "../../../common/Button/Button";
+import {Toggle} from "../../../common/Toggle/Toggle";
 
 
 const ProfileDataForm = (props: any) => {
@@ -17,7 +18,7 @@ const ProfileDataForm = (props: any) => {
                 <b>Full Name</b>:{createField("Full name", "fullName", [], Input, "input")}
             </div>
             <div className={style.boxFormItem}>
-                <b>Looking for a job?</b>: {createField("", "lookingForAJob", [], Input, "checkbox", "")}
+                <b>Looking for a job?</b>:  {createField("", "lookingForAJob", [], Input, "checkbox", "")}
             </div>
         {/*{ props.profile.lookingForAJob &&*/}
                 <div className={style.boxFormItem}>
