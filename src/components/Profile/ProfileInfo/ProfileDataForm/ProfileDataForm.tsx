@@ -5,7 +5,6 @@ import {reduxForm} from "redux-form";
 import style from "../../../common/FormControls/FormControl.module.css";
 import s from './ProfileDataForm.module.css'
 import {Button} from "../../../common/Button/Button";
-import {Toggle} from "../../../common/Toggle/Toggle";
 
 
 const ProfileDataForm = (props: any) => {

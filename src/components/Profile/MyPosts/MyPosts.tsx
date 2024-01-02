@@ -4,6 +4,7 @@ import Post from './Post/Post'
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, minLengthCreator, required} from "../../../utils/validators/validators";
 import {createField, Input, TextArea} from "../../common/FormControls/FormControls";
+import {Button} from "../../common/Button/Button";
 
 // type PostPropsType = {
 //       id: number,
@@ -52,9 +53,7 @@ const AddPostForm = (props: any) => {
                 {createField('write post', "newPostText", [minLength8, maxLength16], Input, "")}
             </div>
             <div>
-                <button>
-                    Add new post
-                </button>
+                <Button buttonTitle='Add new post' width='150px' />
             </div>
         </form>
     )
