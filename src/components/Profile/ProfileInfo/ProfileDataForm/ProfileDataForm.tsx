@@ -24,7 +24,8 @@ const ProfileDataForm = (props: any) => {
             </div>
         {/*{ props.profile.lookingForAJob &&*/}
                 <div className={style.boxFormItem}>
-                    <b>Professional skills</b>: {createField("Professional skills", "lookingForAJobDescription", [], Input, "")}
+                    <b>Professional skills</b>:
+                    {createField("Professional skills", "lookingForAJobDescription", [], Input, "")}
                 </div>
             <div className={style.boxFormItem}>
                 <b>About Me</b>: {createField("About me", "aboutMe", [], Input, "")}

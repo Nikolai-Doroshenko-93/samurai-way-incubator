@@ -3,7 +3,7 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post'
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, minLengthCreator, required} from "../../../utils/validators/validators";
-import {TextArea} from "../../common/FormControls/FormControls";
+import {createField, Input, TextArea} from "../../common/FormControls/FormControls";
 
 // type PostPropsType = {
 //       id: number,
@@ -32,9 +32,9 @@ const MyPosts = React.memo((props: any) => {
     }
 
     return (
-        <div className={s.my_postsWrapper}>
+        <div className={s.myPostsWrapper}>
             <AddPostFormRedux onSubmit={addPost}/>
-            <div className={s.posts_block}>
+            <div className={s.postsBlock}>
                 {postsElement}
             </div>
         </div>
@@ -48,13 +48,8 @@ const minLength8 = minLengthCreator(4)
 const AddPostForm = (props: any) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field
-                    component={TextArea}
-                    name={"newPostText"}
-                    placeholder={'write post'}
-                    validate={[required, minLength8, maxLength16]}
-                />
+            <div className={s.addPostInput}>
+                {createField('write post', "newPostText", [minLength8, maxLength16], Input, "")}
             </div>
             <div>
                 <button>

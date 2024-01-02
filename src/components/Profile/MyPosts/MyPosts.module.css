@@ -1,7 +1,11 @@
-.my_postsWrapper {
+.myPostsWrapper {
     background-color: white;
     border: 1px solid #E5E5E5
 }
-.posts_block {
+.postsBlock {
 
+}
+.addPostInput {
+    width: 95%;
+    margin: 20px;
 }
