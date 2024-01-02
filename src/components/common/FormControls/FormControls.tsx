@@ -2,7 +2,7 @@ import React, {ReactComponentElement} from "react";
 import styles from './FormControl.module.css'
 import {required} from "../../../utils/validators/validators";
 import {Field} from "redux-form";
-import './Togglecss.css'
+import './Toggle.css'
 
 
 const FormControl = ({input, meta, child, element, ...props}: any) => {

@@ -4,8 +4,6 @@ import {createField, Input} from "../FormControls/FormControls";
 
 
 export const Toggle = (props: any) => {
-
-
     return (<div>
         <div className="toggle-container">
                 <input className="toggle-input" type="checkbox"/>

@@ -1,0 +1,16 @@
+.loginTitle {
+    text-align: center;
+}
+
+.loginInputsBlock {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.buttonWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

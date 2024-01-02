@@ -1,11 +1,13 @@
 import React from "react";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
-import {createField, Input} from "../common/FormControls/FormControls";
+import {InjectedFormProps, reduxForm} from "redux-form";
+import {CheckBox, createField, Input} from "../common/FormControls/FormControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {login, logout} from "../redux/authReducer";
 import {Redirect} from "react-router-dom";
 import style from "../../components/common/FormControls/FormControl.module.css"
+import {Button} from "../common/Button/Button";
+import s from './Login.module.css'
 
 type FormDataType = {
     email: string,
@@ -16,16 +18,19 @@ type FormDataType = {
 const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
     return (
         <form onSubmit={handleSubmit}>
-            {createField("Email", "email", [required], Input)}
-            {createField("Password", "password", [required], Input, "password")}
-            {createField(null, "rememberMe", [], Input,  "checkbox", "Remember Me")}
-            {error &&
-                <div className={style.formSummaryError}>
-                    {error}
+            <div className={s.loginInputsBlock}>
+                {createField("Email", "email", [required], Input)}
+                {createField("Password", "password", [required], Input, "password")}
+                {createField(null, "rememberMe", [], CheckBox,  "checkbox", "Remember Me")}
+                {error &&
+                    <div className={style.formSummaryError}>
+                        {error}
+                    </div>
+                }
+
+                <div className={s.buttonWrapper}>
+                    <Button buttonTitle={'Log In'}/>
                 </div>
-            }
-            <div>
-                <button>Log In</button>
             </div>
         </form>
     )}
@@ -44,7 +49,7 @@ const Login = (props: any) => {
         return <Redirect to={"/profile"}/>
     } else {
         return <div>
-            <h1>Login</h1>
+            <h1 className={s.loginTitle}>Login</h1>
             <LoginReduxForm onSubmit={onSubmit}/>
         </div>
     }

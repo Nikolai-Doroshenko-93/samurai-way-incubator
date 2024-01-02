@@ -37,7 +37,7 @@ const ProfileDataForm = (props: any) => {
             })}
             </div>
         <div className={style.boxForSaveButton}>
-            <Button buttonTitle='Save' width='150px'  backgroundColor='#82B440'/>
+            <Button buttonTitle='Save' width='150px'  backgroundColor='#35c759'/>
         </div>
     </form>
 }
