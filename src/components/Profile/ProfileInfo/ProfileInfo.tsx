@@ -8,6 +8,7 @@ import "./ProfileInfo.css"
 import {IconPhoto} from "../../../assets/icons/IconPhoto";
 import {Button} from "../../common/Button/Button";
 
+
 const ProfileInfo = (props: any) => {
 
     const [editMode, setEditMode] = useState(false)
@@ -63,19 +64,23 @@ const ProfileInfo = (props: any) => {
 
 const ProfileData = (props: any) => {
     return (
-        <div>
-            <div><b>Full Name</b>:{props.profile.fullName}</div>
-            <div>
-                <b>Looking for a job</b>: {props.profile.lookingForAJob ? "yes" : "no"}
+        <div className={"profile_info__item-block"}>
+            <div>&#10060;</div>
+            <div>&#9989;</div>
+            <div className={"profile_info__item"}>
+                <p>Full Name:</p>{props.profile.fullName}
+            </div>
+            <div className={"profile_info__item"}>
+                <p>Looking for a job:</p> {props.profile.lookingForAJob ? "yes" : "no"}
             </div>
             { props.profile.lookingForAJob &&
-                <div>
-                    <b>Professional skills</b>: {props.profile.lookingForAJobDescription}
+                <div className={"profile_info__item"}>
+                    <p>Professional skills:</p> {props.profile.lookingForAJobDescription}
                 </div>
             }
-            <div>
-                <b>About Me</b>: {props.profile.aboutMe}
-            </div>
+                <div className={"profile_info__item"}>
+                    <p>About Me:</p> {props.profile.aboutMe}
+                </div>
             <div>
                 <b>Contacts</b>: {Object.keys(props.profile.contacts).map(key => {
                 return <Contact key={key} contactTitle={key} contactValue={props.profile.contacts[key]}/>
@@ -86,7 +91,9 @@ const ProfileData = (props: any) => {
     )
 }
 export const Contact = (props: any) => {
-    return <div><b>{props.contactTitle}</b>: {props.contactValue}</div>
+    return <div className={"profile_info__item"}>
+        <p>{props.contactTitle}</p>: {props.contactValue}
+    </div>
 }
 
 export default ProfileInfo
